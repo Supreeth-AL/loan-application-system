@@ -1,10 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+
 import App from "./App";
+
 import "./index.css";
+
+import { LoanFormProvider } from "./context/LoanFormContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
+    <LoanFormProvider>
+      <App />
+    </LoanFormProvider>
   </React.StrictMode>
 );
