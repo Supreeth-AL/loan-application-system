@@ -26,6 +26,9 @@ export function LoanFormProvider({
       dob: "",
       gender: "",
       maritalStatus: "",
+
+      panNumber: "",
+      aadhaarNumber: "",
     });
 
   const updateFormData = (newData) => {
