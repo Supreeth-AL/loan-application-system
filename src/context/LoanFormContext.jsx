@@ -1,27 +1,38 @@
-import { createContext, useContext, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+} from "react";
 
 const LoanFormContext = createContext();
 
-export function LoanFormProvider({ children }) {
-    const [currentStep, setCurrentStep] = useState(1);
+export function LoanFormProvider({
+  children,
+}) {
+  const [currentStep, setCurrentStep] =
+    useState(1);
 
-    const [formData, setFormDate] = useState({
-        loanType: "",
-        loanAmount: "",
-        fullName: "",
-        email: "",
-        phone: "",
+  const [formData, setFormData] =
+    useState({
+      loanType: "",
+      loanAmount: "",
+      loanTenure: "",
+      interestRate: "",
+
+      fullName: "",
+      email: "",
+      phone: "",
     });
 
-    const updateFormData = (newData) => {
-        setFormData((prev) => ({
-            ...prev,
-            ...newData,
-        }));
-    }
+  const updateFormData = (newData) => {
+    setFormData((prev) => ({
+      ...prev,
+      ...newData,
+    }));
+  };
 
-    return(
-        <LoanFormContext.Provider
+  return (
+    <LoanFormContext.Provider
       value={{
         currentStep,
         setCurrentStep,
@@ -31,7 +42,7 @@ export function LoanFormProvider({ children }) {
     >
       {children}
     </LoanFormContext.Provider>
-    );
+  );
 }
 
 export function useLoanForm() {
