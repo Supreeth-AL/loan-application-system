@@ -29,6 +29,11 @@ export function LoanFormProvider({
 
       panNumber: "",
       aadhaarNumber: "",
+
+      addressLine: "",
+      pinCode: "",
+      city: "",
+      state: "",
     });
 
   const updateFormData = (newData) => {

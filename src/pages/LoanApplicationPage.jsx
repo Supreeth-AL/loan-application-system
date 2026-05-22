@@ -7,13 +7,15 @@ import KYCStep from "../components/steps/KYCStep";
 import ProgressBar from "../components/common/ProgressBar";
 import StepNavigation from "../components/common/StepNavigation";
 
+import AddressStep from "../components/steps/AddressStep";
+
 function LoanApplicationPage() {
   const {
     currentStep,
     setCurrentStep,
   } = useLoanForm();
 
-  const totalSteps = 3;
+  const totalSteps = 4;
 
   const handleNext = () => {
     if (currentStep < totalSteps) {
@@ -37,6 +39,9 @@ function LoanApplicationPage() {
 
       case 3:
         return <KYCStep />;
+
+      case 4:
+        return <AddressStep />;
 
       default:
         return <LoanDetailsStep />;
