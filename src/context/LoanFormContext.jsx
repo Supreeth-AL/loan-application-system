@@ -40,6 +40,11 @@ export function LoanFormProvider({
       monthlySalary: "",
       businessName: "",
       annualIncome: "",
+
+      hasCoApplicant: false,
+      coApplicantName: "",
+      relationship: "",
+      coApplicantIncome: "",
     });
 
   const updateFormData = (newData) => {

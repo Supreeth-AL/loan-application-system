@@ -10,13 +10,15 @@ import StepNavigation from "../components/common/StepNavigation";
 import AddressStep from "../components/steps/AddressStep";
 import EmploymentStep from "../components/steps/EmploymentStep";
 
+import CoApplicantStep from "../components/steps/CoApplicantStep";
+
 function LoanApplicationPage() {
   const {
     currentStep,
     setCurrentStep,
   } = useLoanForm();
 
-  const totalSteps = 5;
+  const totalSteps = 6;
 
   const handleNext = () => {
     if (currentStep < totalSteps) {
@@ -46,6 +48,9 @@ function LoanApplicationPage() {
 
       case 5:
         return <EmploymentStep />;
+
+      case 6:
+        return <CoApplicantStep />;
 
       default:
         return <LoanDetailsStep />;
