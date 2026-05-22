@@ -34,6 +34,12 @@ export function LoanFormProvider({
       pinCode: "",
       city: "",
       state: "",
+
+      employmentType: "",
+      companyName: "",
+      monthlySalary: "",
+      businessName: "",
+      annualIncome: "",
     });
 
   const updateFormData = (newData) => {

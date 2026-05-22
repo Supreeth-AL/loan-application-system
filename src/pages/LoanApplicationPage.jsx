@@ -8,6 +8,7 @@ import ProgressBar from "../components/common/ProgressBar";
 import StepNavigation from "../components/common/StepNavigation";
 
 import AddressStep from "../components/steps/AddressStep";
+import EmploymentStep from "../components/steps/EmploymentStep";
 
 function LoanApplicationPage() {
   const {
@@ -15,7 +16,7 @@ function LoanApplicationPage() {
     setCurrentStep,
   } = useLoanForm();
 
-  const totalSteps = 4;
+  const totalSteps = 5;
 
   const handleNext = () => {
     if (currentStep < totalSteps) {
@@ -42,6 +43,9 @@ function LoanApplicationPage() {
 
       case 4:
         return <AddressStep />;
+
+      case 5:
+        return <EmploymentStep />;
 
       default:
         return <LoanDetailsStep />;
