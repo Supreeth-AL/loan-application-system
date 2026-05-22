@@ -1,13 +1,63 @@
-function LoanApplicationPage() {
-  return (
-    <div className="bg-white p-10 rounded-xl shadow-md">
-      <h2 className="text-2xl font-bold text-blue-600 mb-4">
-        Loan Application Form
-      </h2>
+import { useLoanForm } from "../context/LoanFormContext";
 
-      <p className="text-gray-600">
-        Multi-step form will be built here.
-      </p>
+import LoanDetailsStep from "../components/steps/LoanDetailsStep";
+import PersonalInfoStep from "../components/steps/PersonalInfoStep";
+import KYCStep from "../components/steps/KYCStep";
+
+import ProgressBar from "../components/common/ProgressBar";
+import StepNavigation from "../components/common/StepNavigation";
+
+function LoanApplicationPage() {
+  const {
+    currentStep,
+    setCurrentStep,
+  } = useLoanForm();
+
+  const totalSteps = 3;
+
+  const handleNext = () => {
+    if (currentStep < totalSteps) {
+      setCurrentStep(currentStep + 1);
+    }
+  };
+
+  const handlePrevious = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+    }
+  };
+
+  const renderStep = () => {
+    switch (currentStep) {
+      case 1:
+        return <LoanDetailsStep />;
+
+      case 2:
+        return <PersonalInfoStep />;
+
+      case 3:
+        return <KYCStep />;
+
+      default:
+        return <LoanDetailsStep />;
+    }
+  };
+
+  return (
+    <div className="bg-white p-8 rounded-xl shadow-md">
+      <ProgressBar
+        currentStep={currentStep}
+        totalSteps={totalSteps}
+      />
+
+      {renderStep()}
+
+      <StepNavigation
+        currentStep={currentStep}
+        totalSteps={totalSteps}
+        handleNext={handleNext}
+        handlePrevious={handlePrevious}
+      />
     </div>
   );
 }
