@@ -22,6 +22,10 @@ export function LoanFormProvider({
       fullName: "",
       email: "",
       phone: "",
+
+      dob: "",
+      gender: "",
+      maritalStatus: "",
     });
 
   const updateFormData = (newData) => {
