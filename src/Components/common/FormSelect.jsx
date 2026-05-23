@@ -12,12 +12,12 @@ function FormSelect({
       </label>
 
       <select
+        name={name}
         {...register(name)}
-        className={`w-full border rounded-lg px-4 py-3 outline-none ${
-          error
+        className={`w-full border rounded-lg px-4 py-3 outline-none ${error
             ? "border-red-500"
             : "border-gray-300"
-        }`}
+          }`}
       >
         <option value="">
           Select {label}

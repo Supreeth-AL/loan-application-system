@@ -18,6 +18,7 @@ function FormInput({
 
       <input
         id={name}
+        name={name}
         type={type}
         placeholder={placeholder}
         disabled={disabled}
