@@ -10,11 +10,16 @@ function ReviewSubmitStep() {
 
   const navigate = useNavigate();
 
-  const emi = calculateEMI(
-    Number(formData.loanAmount),
-    Number(formData.interestRate),
-    Number(formData.loanTenure)
-  );
+  const emi =
+  formData.loanAmount &&
+  formData.interestRate &&
+  formData.loanTenure
+    ? calculateEMI(
+        Number(formData.loanAmount),
+        Number(formData.interestRate),
+        Number(formData.loanTenure)
+      )
+    : "0.00";
 
   const handleFinalSubmit = () => {
     console.log(formData);
@@ -32,7 +37,7 @@ function ReviewSubmitStep() {
         Review & Submit
       </h2>
 
-      <div className="bg-white shadow rounded-xl p-6 space-y-6">
+      <div className="bg-white shadow rounded-xl p-4 md:p-6 space-y-6 overflow-auto">
         <div>
           <h3 className="text-xl font-bold mb-3">
             Loan Details

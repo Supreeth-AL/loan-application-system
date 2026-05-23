@@ -20,19 +20,27 @@ function ESignatureStep() {
   };
 
   const saveSignature = () => {
-    const signatureImage =
-      signatureRef.current
-        .getTrimmedCanvas()
-        .toDataURL("image/png");
+  if (signatureRef.current.isEmpty()) {
+    alert("Please provide signature");
 
-    setSavedSignature(signatureImage);
+    return;
+  }
 
-    updateFormData({
-      signature: signatureImage,
-    });
+  const signatureImage =
+    signatureRef.current
+      .getTrimmedCanvas()
+      .toDataURL("image/png");
 
-    alert("Signature Saved");
-  };
+  setSavedSignature(signatureImage);
+
+  updateFormData({
+    signature: signatureImage,
+  });
+
+  console.log(signatureImage);
+
+  alert("Signature Saved Successfully");
+};
 
   return (
     <div>

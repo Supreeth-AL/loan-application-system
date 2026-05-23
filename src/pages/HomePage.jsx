@@ -1,6 +1,15 @@
 import { Link } from "react-router-dom";
+import {
+  clearLocalStorage,
+} from "../utils/localStorage";
 
 function HomePage() {
+  const handleClearData = () => {
+    clearLocalStorage();
+
+    window.location.reload();
+  };
+
   return (
     <div className="bg-white p-10 rounded-xl shadow-md text-center">
       <h2 className="text-3xl font-bold text-blue-600 mb-4">
@@ -17,6 +26,13 @@ function HomePage() {
       >
         Start Application
       </Link>
+
+      <button
+        onClick={handleClearData}
+        className="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600 ml-4"
+      >
+        Clear Saved Data
+      </button>
     </div>
   );
 }

@@ -116,3 +116,15 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f8fafc;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+button {
+  transition: all 0.3s ease;
+}

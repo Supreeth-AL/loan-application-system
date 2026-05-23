@@ -71,7 +71,7 @@ function LoanApplicationPage() {
   };
 
   return (
-    <div className="bg-white p-8 rounded-xl shadow-md">
+    <div className="bg-white p-4 md:p-8 rounded-xl shadow-md">
       <ProgressBar
         currentStep={currentStep}
         totalSteps={totalSteps}
