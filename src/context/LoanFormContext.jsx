@@ -47,6 +47,7 @@ export function LoanFormProvider({
       coApplicantIncome: "",
 
       uploadedDocuments: [],
+      signature: "",
     });
 
   const updateFormData = (newData) => {

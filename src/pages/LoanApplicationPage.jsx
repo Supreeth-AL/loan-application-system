@@ -13,13 +13,15 @@ import EmploymentStep from "../components/steps/EmploymentStep";
 import CoApplicantStep from "../components/steps/CoApplicantStep";
 import DocumentUploadStep from "../components/steps/DocumentUploadStep";
 
+import ESignatureStep from "../Components/steps/ESignatureStep";
+
 function LoanApplicationPage() {
   const {
     currentStep,
     setCurrentStep,
   } = useLoanForm();
 
-  const totalSteps = 7;
+  const totalSteps = 8;
 
   const handleNext = () => {
     if (currentStep < totalSteps) {
@@ -55,6 +57,9 @@ function LoanApplicationPage() {
 
       case 7:
         return <DocumentUploadStep />;
+
+      case 8:
+        return <ESignatureStep />;
 
       default:
         return <LoanDetailsStep />;
